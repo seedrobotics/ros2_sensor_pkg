@@ -15,13 +15,13 @@ def generate_launch_description():
     config_file_arg = DeclareLaunchArgument(
         'config_file',
         default_value=PathJoinSubstitution(
-            [FindPackageShare('sensor_pkg'), 'config', 'sensors_right.yaml']
+            [FindPackageShare('ros2_fts'), 'config', 'sensors_right.yaml']
         ),
         description='Path to the YAML parameter file',
     )
 
     sensor_node = Node(
-        package='sensor_pkg',
+        package='ros2_fts',
         executable='read_publish_sensor_node.py',
         name=LaunchConfiguration('node_name'),
         output='screen',

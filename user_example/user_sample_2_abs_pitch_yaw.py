@@ -8,7 +8,7 @@ import time
 import rclpy
 from rclpy.node import Node
 
-from sensor_pkg.msg import AllSensors, LoneSensor, SensorUserCommand
+from ros2_fts.msg import AllSensors, LoneSensor, SensorUserCommand
 
 #Flag to display value in degrees or radiant
 DEGREES = True  # If true, display in degrees

@@ -10,7 +10,7 @@ import time
 import rclpy
 from rclpy.node import Node
 
-from sensor_pkg.msg import AllSensors, LoneSensor, SensorUserCommand
+from ros2_fts.msg import AllSensors, LoneSensor, SensorUserCommand
 
 class UserListener(Node):
     def __init__(self) -> None:

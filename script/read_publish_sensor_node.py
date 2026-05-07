@@ -5,7 +5,7 @@ import numpy as np
 import rclpy
 import serial
 from rclpy.node import Node
-from sensor_pkg.msg import AllSensors, LoneSensor, SensorUserCommand
+from ros2_fts.msg import AllSensors, LoneSensor, SensorUserCommand
 
 
 class Sensor:

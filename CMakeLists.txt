@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(sensor_pkg)
+project(ros2_fts)
 
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)

@@ -2,7 +2,7 @@
 <package format="3">
   <name>ros2_fts</name>
   <version>0.1.0</version>
-  <description>The sensor_pkg package</description>
+  <description>ROS 2 Force Torque Sensor package</description>
 
   <maintainer email="lennart@seedrobotics.com">lennart</maintainer>
 

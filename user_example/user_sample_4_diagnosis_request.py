@@ -9,7 +9,7 @@ import rclpy
 from rclpy.node import Node
 
 from rcl_interfaces.msg import Log
-from sensor_pkg.msg import SensorUserCommand
+from ros2_fts.msg import SensorUserCommand
 
 DESIRED_FREQUENCY = 20          #1Hz, can be changed with values between 1 and 50
 
