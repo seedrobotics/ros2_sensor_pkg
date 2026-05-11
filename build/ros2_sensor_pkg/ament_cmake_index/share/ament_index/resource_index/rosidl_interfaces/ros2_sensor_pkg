@@ -1,6 +1,0 @@
-msg/AllSensors.idl
-msg/AllSensors.msg
-msg/LoneSensor.idl
-msg/LoneSensor.msg
-msg/SensorUserCommand.idl
-msg/SensorUserCommand.msg

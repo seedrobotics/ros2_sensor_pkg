@@ -1,2 +1,0 @@
-Invoking command in '/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg -- -j16 -l16
-Invoked command in '/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg' returned '2': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg -- -j16 -l16

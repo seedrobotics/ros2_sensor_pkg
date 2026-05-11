@@ -1,8 +1,0 @@
-{
-  "package_name": "ros2_sensor_pkg",
-  "non_idl_tuples": [
-    "/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg:msg/LoneSensor.msg",
-    "/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg:msg/AllSensors.msg",
-    "/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg:msg/SensorUserCommand.msg"
-  ]
-}
