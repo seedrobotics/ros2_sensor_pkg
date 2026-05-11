@@ -1,0 +1,30 @@
+[0.004s] Invoking command in '/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg -DCMAKE_INSTALL_PREFIX=/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/install/ros2_sensor_pkg
+[0.047s] -- The C compiler identification is GNU 13.3.0
+[0.078s] -- The CXX compiler identification is GNU 13.3.0
+[0.090s] -- Detecting C compiler ABI info
+[0.146s] -- Detecting C compiler ABI info - done
+[0.151s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.151s] -- Detecting C compile features
+[0.151s] -- Detecting C compile features - done
+[0.158s] -- Detecting CXX compiler ABI info
+[0.221s] -- Detecting CXX compiler ABI info - done
+[0.226s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.226s] -- Detecting CXX compile features
+[0.227s] -- Detecting CXX compile features - done
+[0.230s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.297s] -- Found Python3: /home/lennart/miniconda3/envs/cycleIK/bin/python3 (found version "3.10.20") found components: Interpreter 
+[0.373s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[0.378s] CMake Error at /opt/ros/jazzy/share/rosidl_typesupport_c/cmake/get_used_typesupports.cmake:35 (message):
+[0.378s]   No 'rosidl_typesupport_c' found
+[0.378s] Call Stack (most recent call first):
+[0.378s]   /opt/ros/jazzy/share/rosidl_typesupport_c/cmake/rosidl_typesupport_c-extras.cmake:8 (get_used_typesupports)
+[0.378s]   /opt/ros/jazzy/share/rosidl_typesupport_c/cmake/rosidl_typesupport_cConfig.cmake:41 (include)
+[0.378s]   /opt/ros/jazzy/share/rosidl_core_generators/cmake/rosidl_core_generators-extras.cmake:21 (find_package)
+[0.378s]   /opt/ros/jazzy/share/rosidl_core_generators/cmake/rosidl_core_generatorsConfig.cmake:41 (include)
+[0.378s]   /opt/ros/jazzy/share/rosidl_default_generators/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[0.378s]   /opt/ros/jazzy/share/rosidl_default_generators/cmake/rosidl_default_generatorsConfig.cmake:41 (include)
+[0.378s]   CMakeLists.txt:5 (find_package)
+[0.378s] 
+[0.378s] 
+[0.378s] -- Configuring incomplete, errors occurred!
+[0.380s] Invoked command in '/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg' returned '1': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg -DCMAKE_INSTALL_PREFIX=/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/install/ros2_sensor_pkg

@@ -1,0 +1,25 @@
+[0.005s] Invoking command in '/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg -- -j16 -l16
+[0.037s] [  1%] Built target ros2_sensor_pkg__rs
+[0.038s] [  3%] Generating type hashes for ROS interfaces
+[0.044s] [  3%] Built target ament_cmake_python_copy_ros2_sensor_pkg
+[0.161s] running egg_info
+[0.172s] writing ros2_sensor_pkg.egg-info/PKG-INFO
+[0.172s] writing dependency_links to ros2_sensor_pkg.egg-info/dependency_links.txt
+[0.172s] writing top-level names to ros2_sensor_pkg.egg-info/top_level.txt
+[0.202s] reading manifest file 'ros2_sensor_pkg.egg-info/SOURCES.txt'
+[0.202s] writing manifest file 'ros2_sensor_pkg.egg-info/SOURCES.txt'
+[0.216s] [  3%] Built target ament_cmake_python_build_ros2_sensor_pkg_egg
+[0.891s] Traceback (most recent call last):
+[0.891s]   File "/opt/ros/jazzy/lib/rosidl_generator_type_description/rosidl_generator_type_description", line 50, in <module>
+[0.891s]     sys.exit(main())
+[0.891s]              ^^^^^^
+[0.891s]   File "/opt/ros/jazzy/lib/rosidl_generator_type_description/rosidl_generator_type_description", line 46, in main
+[0.891s]     generate_type_hash(args.generator_arguments_file)
+[0.891s]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rosidl_generator_type_description/__init__.py", line 160, in generate_type_hash
+[0.891s]     pkg_dir = include_map[pkg]
+[0.891s]               ~~~~~~~~~~~^^^^^
+[0.891s] KeyError: 'ros2_fts'
+[0.910s] gmake[2]: *** [CMakeFiles/ros2_sensor_pkg__rosidl_generator_type_description.dir/build.make:79: rosidl_generator_type_description/ros2_sensor_pkg/msg/LoneSensor.json] Error 1
+[0.910s] gmake[1]: *** [CMakeFiles/Makefile2:234: CMakeFiles/ros2_sensor_pkg__rosidl_generator_type_description.dir/all] Error 2
+[0.910s] gmake: *** [Makefile:146: all] Error 2
+[0.911s] Invoked command in '/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg' returned '2': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg -- -j16 -l16

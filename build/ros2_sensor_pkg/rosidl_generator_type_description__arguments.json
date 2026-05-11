@@ -1,0 +1,13 @@
+{
+  "package_name": "ros2_sensor_pkg",
+  "output_dir": "/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg/rosidl_generator_type_description/ros2_sensor_pkg",
+  "idl_tuples": [
+    "/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg/rosidl_adapter/ros2_sensor_pkg:msg/LoneSensor.idl",
+    "/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg/rosidl_adapter/ros2_sensor_pkg:msg/AllSensors.idl",
+    "/home/lennart/Dev/test/ros2_robothands/src/ros2_sensor_pkg/build/ros2_sensor_pkg/rosidl_adapter/ros2_sensor_pkg:msg/SensorUserCommand.idl"
+  ],
+  "include_paths": [
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces"
+  ]
+}

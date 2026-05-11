@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "ros2_sensor_pkg__rs",
+		"source" : "build/ros2_sensor_pkg/ros2_sensor_pkg__rs"
+	}
+}

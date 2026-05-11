@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ros2_sensor_pkg/msg/SensorUserCommand.msg
+// generated code does not contain a copyright notice
+
+
+module ros2_sensor_pkg {
+  module msg {
+    struct SensorUserCommand {
+      boolean calibrate;
+
+      boolean setepoch;
+
+      string epoch_sec;
+
+      string epoch_msec;
+
+      boolean diagnosis_request;
+
+      boolean set_frequency;
+
+      int8 frequency;
+
+      boolean raw_string;
+
+      string raw;
+    };
+  };
+};

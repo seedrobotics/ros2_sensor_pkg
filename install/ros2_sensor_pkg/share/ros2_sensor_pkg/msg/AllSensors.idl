@@ -1,0 +1,18 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ros2_sensor_pkg/msg/AllSensors.msg
+// generated code does not contain a copyright notice
+
+#include "ros2_sensor_pkg/msg/LoneSensor.idl"
+#include "std_msgs/msg/Header.idl"
+
+module ros2_sensor_pkg {
+  module msg {
+    struct AllSensors {
+      std_msgs::msg::Header header;
+
+      int8 length;
+
+      sequence<ros2_sensor_pkg::msg::LoneSensor> data;
+    };
+  };
+};
