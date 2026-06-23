@@ -36,6 +36,7 @@ class SeedFTS3Node(Node):
         self.declare_parameter('sensor_number', 5)
         self.declare_parameter('port', '/dev/ttyUSB0')
         self.declare_parameter('hand_polarity', 'R_')
+        self.declare_parameter('frequency', 50)
 
         self.sensor_number = int(self.get_parameter('sensor_number').value)
         self.port = str(self.get_parameter('port').value)
@@ -61,7 +62,8 @@ class SeedFTS3Node(Node):
         except serial.SerialException:
             self.get_logger().error(f'Could not open serial port {self.port}')
             raise
-
+        
+        self.sensor_read.write(str.encode(f"setperiod,{1000 / self.get_parameter("frequency").value}"))
         pub_sensor_topic = f'{self.polarity}AllSensors'
         sub_command_topic = f'{self.polarity}sensor_user_command'
 

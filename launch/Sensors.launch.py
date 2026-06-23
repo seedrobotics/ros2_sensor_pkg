@@ -1,35 +1,38 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, OpaqueFunction
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
 
-def generate_launch_description():
-    node_name_arg = DeclareLaunchArgument(
-        'node_name',
-        default_value='seed_fts3_right',
-        description='Name of the sensor node',
-    )
+def launch_setup(context, *args, **kwargs):
+    hand = LaunchConfiguration('hand').perform(context)
 
-    config_file_arg = DeclareLaunchArgument(
-        'config_file',
-        default_value=PathJoinSubstitution(
-            [FindPackageShare('ros2_sensor_pkg'), 'config', 'sensors_right.yaml']
-        ),
-        description='Path to the YAML parameter file',
+    config_file = PathJoinSubstitution(
+        [FindPackageShare('ros2_sensor_pkg'), 'config', f'sensors_{hand}.yaml']
     )
 
     sensor_node = Node(
         package='ros2_sensor_pkg',
         executable='read_publish_sensor_node.py',
-        name=LaunchConfiguration('node_name'),
+        name=f'seed_fts3_{hand}',
         output='screen',
-        parameters=[LaunchConfiguration('config_file')],
+        parameters=[config_file],
+    )
+
+    return [sensor_node]
+
+
+def generate_launch_description():
+    hand_arg = DeclareLaunchArgument(
+        'hand',
+        default_value='right',
+        choices=['left', 'right'],
+        description='Which hand to launch (selects config/sensors_<hand>.yaml '
+                    'and names the node seed_fts3_<hand>)',
     )
 
     return LaunchDescription([
-        node_name_arg,
-        config_file_arg,
-        sensor_node,
+        hand_arg,
+        OpaqueFunction(function=launch_setup),
     ])
