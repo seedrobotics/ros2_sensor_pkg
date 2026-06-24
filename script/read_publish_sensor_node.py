@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import time
-
+import signal
 import numpy as np
 import rclpy
 import serial
@@ -58,12 +58,15 @@ class SeedFTS3Node(Node):
                 self.baudrate,
                 timeout=1.5,
                 write_timeout=1,
+                exclusive=True
             )
         except serial.SerialException:
             self.get_logger().error(f'Could not open serial port {self.port}')
             raise
         
-        self.sensor_read.write(str.encode(f"setperiod,{1000 / self.get_parameter("frequency").value}"))
+        #set publishing period and calibrate
+        self._write_command(f"setperiod,{1000 / self.get_parameter("frequency").value}")
+
         pub_sensor_topic = f'{self.polarity}AllSensors'
         sub_command_topic = f'{self.polarity}sensor_user_command'
 
@@ -79,9 +82,10 @@ class SeedFTS3Node(Node):
 
         self.get_logger().info(f'Using serial port: {self.port}')
         self.get_logger().info(f'Hand polarity: {self.polarity}')
-
         self._initialize_sensor_stream()
 
+        #flush the buffer before reading
+        self.sensor_read.reset_input_buffer()  
         self.timer = self.create_timer(1.0 / 50.0, self.publish_cycle)
 
     def _write_command(self, command):
@@ -278,12 +282,28 @@ class SeedFTS3Node(Node):
         self.pub.publish(final_msg)
 
     def destroy_node(self):
-        if hasattr(self, 'sensor_read') and self.sensor_read and self.sensor_read.is_open:
-            self.sensor_read.close()
+        # Idempotent: rclpy may call destroy_node() more than once, and we want
+        # the serial fd (and its TIOCEXCL lock) released exactly once, safely.
+        if not getattr(self, '_port_closed', False):
+            self._port_closed = True
+            ser = getattr(self, 'sensor_read', None)
+            if ser is not None and getattr(ser, 'is_open', False):
+                self.get_logger().info('Closing port…')
+                try:
+                    ser.close()
+                except Exception as exc:  # never let cleanup mask the real error
+                    self.get_logger().warning(f'Error closing port: {exc}')
         super().destroy_node()
 
 
 def main(args=None):
+    # ros2 launch stops nodes with SIGTERM, which by default does NOT raise
+    # KeyboardInterrupt — so without this the finally below never runs, the
+    # serial fd leaks and its TIOCEXCL lock keeps /dev/ttyUSB0 busy on restart.
+    def _on_sigterm(signum, frame):
+        raise KeyboardInterrupt()
+    signal.signal(signal.SIGTERM, _on_sigterm)
+
     rclpy.init(args=args)
     node = None
     try:
@@ -294,7 +314,8 @@ def main(args=None):
     finally:
         if node is not None:
             node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():
+            rclpy.shutdown()
 
 
 if __name__ == '__main__':
